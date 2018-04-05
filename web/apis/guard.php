@@ -32,7 +32,7 @@ header('Header always set Access-Control-Allow-Credentials: true');
 	}*/
 
 	//use guard class
-	require_once($_SERVER['DOCUMENT_ROOT'].'/kuautli/models/guard.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/models/guard.php');
 
 	//GET (Read)
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
