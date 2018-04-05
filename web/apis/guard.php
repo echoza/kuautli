@@ -10,7 +10,7 @@ header('Header always set Access-Control-Allow-Credentials: true');
 	//get headers
 	$headers = getallheaders();
 	//check if headers were received
-	<!--if (isset($headers['user']) && isset($headers['token'])) {
+	/*if (isset($headers['user']) && isset($headers['token'])) {
 		//authenticate token
 		require_once($_SERVER['DOCUMENT_ROOT'].'/kuautli/security/security.php');
 		if ($headers['token'] != Security::generateToken($headers['user'])) {
@@ -29,7 +29,7 @@ header('Header always set Access-Control-Allow-Credentials: true');
 		));
 		//kill the script
 		die();
-	}-->
+	}*/
 
 	//use guard class
 	require_once($_SERVER['DOCUMENT_ROOT'].'/kuautli/models/guard.php');
