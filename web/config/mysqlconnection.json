@@ -1,0 +1,6 @@
+{
+	"server" : "kuautlidb.caughvw7jsbu.us-east-2.rds.amazonaws.com",
+	"database" : "kuautli",
+	"user" : "kuautli",
+	"password" : "12345678"
+}
