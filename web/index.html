@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kuautli - Map</title>
+    <!--style sheets-->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/map.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
+    <link href="css/popup.css" rel="stylesheet">
+    <
+    <!--scripts-->
+    <script src="js/map.js"></script>
+    <script src="js/general.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/globals.js"></script>
+    <script src="js/guards.js"></script>
+    <script src="js/incidents.js"></script>
+    <script src="js/chat.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="main-top-bar">
+        <div id="logo">
+            <img src="images/kuautliFont.png">
+        </div>
+        <div id="user">
+            <table>
+                <tr>
+                    <td rowspan="2"><img id="userphoto"></td>
+                    <td id="username">username</td>
+                    <td rowspan="2" id="user-logout"><button id="button-logout" onclick="logout();">Log out</button></td>
+                </tr>
+                <tr>
+                    <td id="userrole"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="top-menu">
+        <h1>Maps</h1>
+    </div>
+    <div id="side-menu">
+        <img src="images/logo.png">
+        <nav id="side-menu-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html"><i class="fa fa-tachometer fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a href="index.html" class="active-page"><i class="fa fa-map fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a href="graphs.html"><i class="fa fa-pie-chart fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a><i class="fa fa-gear fa-2x fa-fw"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content" class="hide">
+        <div id="map"></div>
+    </div>
+    <div id="chat">    
+    </div>
+    <div id="side-bar" class="hide">
+        <div id="side-bar-toggle" onclick="toggleMenu()">
+            <span class="arrow left"></span>
+        </div>
+        <div id="side-bar-content">
+           <!--Tabs-->
+            <div id="tabs">
+                <button class="tab-button" onclick="openOption('activity')">Activity</button>
+                <button class="tab-button" onclick="tabButton('guards')">Guards</button>
+                <button class="tab-button" onclick="tabButton('incidents')">Incidents</button>
+            </div>
+            <!--Tab content-->
+            <!--Active guards and incidents-->
+            <div class="tab-content" id="activity">
+                <ul class="menu-acordeon">
+                    <li id="active-guards" onclick="collapseMenu('active-guards')">
+                        <a>ACTIVE GUARDS</a>
+                        <div class="plus-minus-toggle"></div>
+                    </li>
+                    <ul class="guards-list scroll" id="active-guards-list">
+                    </ul>
+                    <li id="active-incidents" onclick="collapseMenu('active-incidents')">
+                        <a>ACTIVE INCIDENTS</a>
+                        <div class="plus-minus-toggle"></div>
+                    </li>
+                    <ul class="incidents-list scroll" id="active-incidents-list">
+                    </ul>
+                </ul>
+            </div>
+            <!--All Guards list-->
+            <div class="tab-content" id="guards">
+              				<div class="tools" id="tool-bar">
+					<select class="OrderSelect" id="selectOrder" onchange="getGuardsSelector(this.value),clearDiv('guards-list')">
+						<option value="" disabled selected hidden>Order By</option>
+						<option value="0">Last login</option>
+						<option value="1">Alphabetic</option>
+					</select>
+					<select class="FilterSelect" onchange="getShiftGuards(this.value),clearDiv('guards-list')">
+						<option value="" disabled selected hidden>Filter By</option>
+						<option value="A">Afternoon shift</option>
+						<option value="M">Morning shift</option>
+						<option value="N">Night shift</option>
+					</select>
+					
+						<a href="addGuard.html"><i class="fa fa-user fa-2x fa-fw"></i></a>
+					
+				</div>
+               <!--Content-->     
+                <ul id="guards-list" class="all-guards-list scroll">
+                </ul>
+            </div>
+            <!--Incidents tab-->
+            <div class="tab-content" id="incidents" >
+                <div class="tools" id="tool-bar2">
+					<select class="OrderSelectI" id="selectOrder" onchange="getOrderIncidents(this.value),clearDiv('incident-list')">
+						<option value="" disabled selected hidden>Order By</option>
+						<option value="1">Date</option>
+						<option value="2">Type</option>
+						<option value="3">Summon</option>
+					</select>
+					<select class="FilterSelectI" onchange="getIncidentByType(this.value), clearDiv('incident-list')">
+						<option value="" disabled selected hidden>Filter By</option>
+						<option value="1">Fire</option>
+						<option value="2">Assault</option>
+						<option value="3">Stole</option>
+						<option value="4">Kidnapping</option>
+						<option value="5">Aggression</option>
+						<option value="6">Violation</option>
+						<option value="7">Medical</option>
+					</select>
+				</div>
+                <ul id="incident-list" class="all-incidents-list scroll">
+				</ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHRw3C5CZMSC69I4JF7Iu5Hq87Toemzho&callback=initMap">
+    </script>
+</body>
+
+</html>

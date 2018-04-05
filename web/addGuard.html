@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <title>Kuautli - Guards</title>
+		<!--style sheets-->
+		<link href="css/index.css" rel="stylesheet">
+		<link href="css/map.css" rel="stylesheet">
+		<link href="css/popup.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/radiobutton.css" rel="stylesheet">
+		<link href="css/addGuard.css" rel="stylesheet">
+		<!--scripts-->
+		<script src="js/map.js"></script>
+		<script src="js/general.js"></script>
+		<script src="js/popup.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/guards.js"></script>
+		<script src="js/incidents.js"></script>
+		<script src="js/addGuard.js"></script>
+		
+	</head>
+	<body onload="userInfo(),createForm()">
+		<div id="main-top-bar">
+        <div id="logo">
+            <img src="images/kuautliFont.png">
+        </div>
+        <div id="user">
+            <table>
+                <tr>
+                    <td rowspan="2"><img id="userphoto" src=""></td>
+                    <td id="username">username</td>
+                    <td rowspan="2" id="user-logout"><button id="button-logout" onclick="logout()">Log out</button></td>
+                </tr>
+                <tr>
+                    <td id="userrole"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="top-menu">
+        <h1>Add Guard</h1>
+    </div>
+    <div id="side-menu">
+        <img src="images/logo.png">
+        <nav id="side-menu-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html"><i class="fa fa-tachometer fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-map fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a><i class="fa fa-pie-chart fa-2x fa-fw"></i></a>
+                </li>
+                <li>
+                    <a><i class="fa fa-gear fa-2x fa-fw"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content">
+            <div id="container">
+                <h1>Add Guard</h1>
+                <div id="form"></div>
+                <div id="buttons" class="buttons"></div>
+		    </div>
+		</div>
+	</body>
+</html>

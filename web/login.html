@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<!--style sheets-->
+		<link href="css/login.css" rel="stylesheet">
+		<!--scripts-->
+		<script src="js/globals.js"></script>
+		<script src="js/login.js"></script>
+	</head>
+	<body>
+
+		<header>
+			<div id="logo">
+				<img src="images/kuautli.png">
+			</div>
+		</header>
+		<div id="smallcontainer">
+			<img src="images/user.png" class="user">
+		<center><label><h1>Login</h1></label></center>
+		<!--<center><img src="images/kuautli.png" width="170"></center>-->
+<form>
+	<p>Username</p>
+			<input type="text" id="user" placeholder="Enter username" >
+	<p>Password</p>
+			<input type="password" id="password" placeholder="Enter password">
+<br>
+<br>
+			<center><div class="buttons" onClick="login();"><button class="login">Sign In</button></div></center>
+			<label class="error" id="error"></label>
+</form>
+		</div>
+	</body>
+</html>
